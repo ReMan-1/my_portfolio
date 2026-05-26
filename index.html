@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>REMAN PARIYAR | Premium Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --primary: #2563eb;
+      --secondary: #0f172a;
+      --light: #f8fafc;
+      --text: #1e293b;
+      --muted: #64748b;
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --shadow: 0 10px 40px rgba(37, 99, 235, 0.08);
+      --gradient: linear-gradient(135deg, #2563eb, #06b6d4);
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f8fbff;
+      color: var(--text);
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before,
+    body::after {
+      content: '';
+      position: fixed;
+      border-radius: 50%;
+      z-index: -1;
+      filter: blur(70px);
+      opacity: 0.4;
+    }
+
+    body::before {
+      width: 400px;
+      height: 400px;
+      background: #93c5fd;
+      top: -100px;
+      left: -100px;
+    }
+
+    body::after {
+      width: 350px;
+      height: 350px;
+      background: #67e8f9;
+      bottom: -100px;
+      right: -100px;
+    }
+
+    .abstract-shape {
+      position: absolute;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(37,99,235,0.18), rgba(6,182,212,0.18));
+      animation: floatShape 8s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    .shape1 {
+      width: 180px;
+      height: 180px;
+      top: 120px;
+      right: 8%;
+    }
+
+    .shape2 {
+      width: 120px;
+      height: 120px;
+      bottom: 100px;
+      left: 5%;
+      animation-delay: 2s;
+    }
+
+    @keyframes floatShape {
+      0%,100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(8deg); }
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255,255,255,0.9);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 20px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--secondary);
+      font-weight: 500;
+      position: relative;
+      transition: 0.3s;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: var(--gradient);
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 120px 8% 80px;
+      position: relative;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero-text h1 {
+      font-size: 4.5rem;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: var(--secondary);
+    }
+
+    .hero-text h1 span {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .typing {
+      font-size: 1.4rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .hero-text p {
+      color: var(--muted);
+      line-height: 1.9;
+      margin-bottom: 35px;
+      max-width: 650px;
+      font-size: 1.05rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 28px;
+      border-radius: 14px;
+      text-decoration: none;
+      color: white;
+      background: var(--gradient);
+      transition: 0.35s;
+      box-shadow: 0 12px 25px rgba(37,99,235,0.2);
+      font-weight: 600;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+    }
+
+    .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-image img {
+      width: 380px;
+      height: 460px;
+      object-fit: cover;
+      border-radius: 30px;
+      box-shadow: 0 20px 50px rgba(15,23,42,0.15);
+      animation: floatImage 5s ease-in-out infinite;
+    }
+
+    @keyframes floatImage {
+      0%,100% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 60px;
+      color: var(--secondary);
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 24px;
+      padding: 35px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      transition: 0.4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .about-content {
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+      line-height: 2;
+      color: var(--muted);
+    }
+
+    .skills-grid,
+    .projects-grid,
+    .achievement-grid,
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+
+    .skill-card,
+    .project-card,
+    .achievement-card,
+    .social-card {
+      text-align: center;
+    }
+
+    .skill-card h3,
+    .project-card h3,
+    .achievement-card h3,
+    .social-card h3 {
+      color: var(--secondary);
+      margin-bottom: 12px;
+    }
+
+    .achievement-card img,
+    .graduation-image {
+      width: 100%;
+      border-radius: 18px;
+      margin-bottom: 18px;
+    }
+
+    p {
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .graduation-wrapper {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .project-tag {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 8px 16px;
+      border-radius: 30px;
+      background: #dbeafe;
+      color: var(--primary);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .contact-box {
+      max-width: 700px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .contact-box a,
+    .social-card a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer {
+      text-align: center;
+      padding: 35px 20px;
+      background: #ffffff;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .scroll-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: none;
+      background: var(--gradient);
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(37,99,235,0.25);
+      display: none;
+      z-index: 1000;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+
+      .hero-text h1 {
+        font-size: 3rem;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .hero-image img {
+        width: 300px;
+        height: 380px;
+      }
+
+      .nav-container {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="abstract-shape shape1"></div>
+  <div class="abstract-shape shape2"></div>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">REMAN PARIYAR</div>
+      <ul class="nav-links">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#graduation">Graduation</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="home" class="hero">
+    <div class="hero-text fade-in">
+      <h1>Hello, I'm <span>REMAN PARIYAR</span></h1>
+      <div class="typing"></div>
+      <p>
+        I am REMAN PARIYAR, a passionate freelancer, designer, and creative learner from Nepal.
+        I specialize in web design, video editing, and digital creativity while continuously improving my technical skills.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#projects" class="btn">View Projects</a>
+        <a href="#contact" class="btn">Hire Me</a>
+        <a href="#" class="btn">Download Resume</a>
+      </div>
+    </div>
+
+    <div class="hero-image fade-in">
+      <!-- Replace with your first uploaded image -->
+      <img src="pfp.png" alt="REMAN PARIYAR Profile Image">
+    </div>
+
+    <div class="scroll-indicator">⌄</div>
+  </section>
+
+  <section id="about">
+    <h2 class="section-title fade-in">About Me</h2>
+
+    <div class="card about-content fade-in">
+      <p>
+        I am a high school graduate, freelancer, designer, and computer operator certificate holder from Nepal.
+        My journey in digital creativity includes web design, graphic design, video editing, and continuously learning modern technologies.
+        I enjoy creating premium visual experiences and improving my skills every day.
+      </p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2 class="section-title fade-in">Skills</h2>
+
+    <div class="skills-grid">
+      <div class="card skill-card fade-in">
+        <h3>HTML</h3>
+        <p>Modern semantic web structures and responsive layouts.</p>
+      </div>
+
+      <div class="card skill-card fade-in">
+        <h3>CSS</h3>
+        <p>Premium UI/UX styling, animations, and glassmorphism design.</p>
+      </div>
+
+      <div class="card skill-card fade-in">
+        <h3>JavaScript</h3>
+        <p>Interactive web experiences and smooth dynamic effects.</p>
+      </div>
+
+      <div class="card skill-card fade-in">
+        <h3>Video Editing</h3>
+        <p>Creative editing with cinematic transitions and storytelling.</p>
+      </div>
+
+      <div class="card skill-card fade-in">
+        <h3>MS Office</h3>
+        <p>Professional productivity and office management skills.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="achievements">
+    <h2 class="section-title fade-in">Achievements</h2>
+
+    <div class="achievement-grid">
+      <div class="card achievement-card fade-in">
+        <!-- Replace with your second uploaded image -->
+        <img src="grd.jpg" alt="Graduation Achievement">
+        <h3>Graduation Achievement</h3>
+        <p>
+          Successfully completed high school education while continuously building technical and creative skills.
+        </p>
+      </div>
+
+      <div class="card achievement-card fade-in">
+        <!-- Replace with your third uploaded image -->
+        <img src="modeling.jpg" alt="Modeling Achievement">
+        <h3>Modeling Achievement</h3>
+        <p>
+          Personal modeling and creative presentation achievements showcasing confidence and visual creativity.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="graduation">
+    <h2 class="section-title fade-in">Graduation</h2>
+
+    <div class="card graduation-wrapper fade-in">
+      <!-- Replace with graduation image -->
+      <img src="grd.jpg" alt="Graduation Image" class="graduation-image">
+      <h3>High School Graduate</h3>
+      <p>
+        Proudly completed high school education while developing practical digital and creative skills.
+      </p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2 class="section-title fade-in">Projects</h2>
+
+    <div class="projects-grid">
+      <div class="card project-card fade-in">
+        <div>
+          <h3>Portfolio Website</h3>
+          <p>
+            Modern personal portfolio website with glassmorphism UI and premium animations.
+          </p>
+        </div>
+        <span class="project-tag">Web Design</span>
+      </div>
+
+      <div class="card project-card fade-in">
+        <div>
+          <h3>Creative Video Editing</h3>
+          <p>
+            Cinematic short-form and creative visual editing projects.
+          </p>
+        </div>
+        <span class="project-tag">Video Editing</span>
+      </div>
+
+      <div class="card project-card fade-in">
+        <div>
+          <h3>Future Project Placeholder</h3>
+          <p>
+            Additional future projects and premium creative works will appear here.
+          </p>
+        </div>
+        <span class="project-tag">Coming Soon</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title fade-in">Contact</h2>
+
+    <div class="card contact-box fade-in">
+      <p><strong>Email:</strong> <a href="mailto:rmnpryr@gmail.com">rmnpryr@gmail.com</a></p>
+      <p><strong>Location:</strong> Nepal</p>
+      <br>
+      <a href="mailto:rmnpryr@gmail.com" class="btn">Send Email</a>
+    </div>
+  </section>
+
+  <section id="socials">
+    <h2 class="section-title fade-in">Social Links</h2>
+
+    <div class="social-grid">
+      <div class="card social-card fade-in">
+        <h3>GitHub</h3>
+        <p>Explore my coding and creative work.</p>
+        <a href="https://github.com/ReMan-1" target="_blank">Visit GitHub</a>
+      </div>
+
+      <div class="card social-card fade-in">
+        <h3>Instagram</h3>
+        <p>Follow my creative and personal journey.</p>
+        <a href="https://www.instagram.com/reman_pryr10/" target="_blank">Visit Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 REMAN PARIYAR • Premium Personal Portfolio</p>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop">↑</button>
+
+  <script>
+    const typingElement = document.querySelector('.typing');
+    const texts = [
+      'Freelancer',
+      'Designer',
+      'Video Editor',
+      'Creative Learner',
+      'Computer Operator'
+    ];
+
+    let textIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    function typeEffect() {
+      const currentText = texts[textIndex];
+
+      if (!deleting) {
+        typingElement.textContent = currentText.substring(0, charIndex + 1);
+        charIndex++;
+
+        if (charIndex === currentText.length) {
+          deleting = true;
+          setTimeout(typeEffect, 1400);
+          return;
+        }
+      } else {
+        typingElement.textContent = currentText.substring(0, charIndex - 1);
+        charIndex--;
+
+        if (charIndex === 0) {
+          deleting = false;
+          textIndex = (textIndex + 1) % texts.length;
+        }
+      }
+
+      setTimeout(typeEffect, deleting ? 55 : 110);
+    }
+
+    typeEffect();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').includes(current)) {
+          link.classList.add('active');
+        }
+      });
+
+      const scrollBtn = document.getElementById('scrollTop');
+      if (window.scrollY > 500) {
+        scrollBtn.style.display = 'block';
+      } else {
+        scrollBtn.style.display = 'none';
+      }
+    });
+
+    document.getElementById('scrollTop').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+
+</body>
+</html>
